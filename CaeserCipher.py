@@ -23,7 +23,6 @@ if __name__ == '__main__':
         if symbol in SYMBOLS:
             # Find symbol in SYMBOLS and return the symbolIndex that was found
             symbolIndex = SYMBOLS.find(symbol)
-
             # Perform encryption/decryption:
             if mode == 'encrypt':
                 translatedIndex = symbolIndex + key
