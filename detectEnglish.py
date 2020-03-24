@@ -5,14 +5,14 @@ def loadDictionary():
     dictionaryFile = open('dictionary.txt')
     englishWords = {}
     for word in dictionaryFile.read().split('\n'):
-        englishWords[words] = None
+        englishWords[word] = None
     dictionaryFile.close()
     return englishWords
 ENGLISH_WORDS = loadDictionary()
 
 def getEnglishCount(message):
     message = message.upper()
-    message = removeNonletters(message)
+    message = removeNonLetters(message)
     possibleWords = message.split()
 
     if possibleWords == []:
@@ -31,7 +31,7 @@ def removeNonLetters(message):
         lettersOnly.append(symbol)
     return ''.join(lettersOnly)
 
-def isEnglish(message, wordPercentage, letterPercentage):
+def isEnglish(message, wordPercentage=20, letterPercentage=85):
     wordsMatch = getEnglishCount(message) * 100 >= wordPercentage
     numLetters = len(removeNonLetters(message))
     messageLettersPercentage = float(numLetters) / len(message) * 100
